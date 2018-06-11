@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>Report</title>
+</head>
+
+<body>
+
+
+	<nav class="navbar navbar-default" th:fragment="header">
+		<div>
+			<ul class="nav navbar-nav">
+				<li><a href="/">Home</a></li>
+				<li class="active"><a href="/report">Report</a></li>
+			</ul>
+			<h4 align="right">eBay Report Services</h4>
+		</div>
+	</nav>
+
+
+
+
+	<div class="container">
+		<div th:each="workbook : ${cvsLoaners}">
+			<div class="table-responsive" th:if="${workbook.loaners} != null">
+				<h2  th:text="${workbook.source}"></h2>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Address</th>
+							<th>PostCode</th>
+							<th>Phone</th>
+							<th>Credit Limit</th>
+							<th>Birthday</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="loaner : ${workbook.loaners}">
+							<td th:text="${loaner.name}"></td>
+							<td th:text="${loaner.address}"></td>
+							<td th:text="${loaner.postcode}"></td>
+							<td th:text="${loaner.phone}"></td>
+							<td th:text="${loaner.creditLimit}"></td>
+							<td th:text="${loaner.birthday}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<div th:each="workbook : ${prnLoaners}">
+			<div class="table-responsive" th:if="${workbook.loaners} != null">
+				<h2 th:text="${workbook.source}"></h2>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Address</th>
+							<th>PostCode</th>
+							<th>Phone</th>
+							<th>Credit Limit</th>
+							<th>Birthday</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="loaner : ${workbook.loaners}">
+							<td th:text="${loaner.name}"></td>
+							<td th:text="${loaner.address}"></td>
+							<td th:text="${loaner.postcode}"></td>
+							<td th:text="${loaner.phone}"></td>
+							<td th:text="${loaner.creditLimit}"></td>
+							<td th:text="${loaner.birthday}"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
